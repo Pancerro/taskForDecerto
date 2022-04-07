@@ -1,0 +1,7 @@
+<div class="product-container">
+  <div *ngFor="let product of productList" (click)="setProduct(product)" class="product"
+       [ngClass]="product.id === _value ? 'is-active': ''">
+    <span>{{product.name}}</span>
+    <span class="tooltip-info" [matTooltip]="product.description" matTooltipPosition="above">?</span>
+  </div>
+</div>

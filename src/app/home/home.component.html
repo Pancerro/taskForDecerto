@@ -1,0 +1,18 @@
+<div class="home-container">
+  <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
+    <div class="header-container" [ngClass]="hideProducts ? '': 'is-hide'">
+      <h1>Wybór produktów</h1>
+      <img *ngIf="!hideProducts" (click)="hideProduct()" src="assets/arrow/down-arrow-of-angle-svgrepo-com.svg">
+      <img *ngIf="hideProducts" (click)="hideProduct()" src="assets/arrow/up-arrow-svgrepo-com.svg">
+    </div>
+    <ng-container *ngIf="hideProducts">
+      <app-custom-input [productList]="productList" formControlName="product"></app-custom-input>
+    </ng-container>
+    <ng-container *ngIf="!hideProducts">
+      <div class="product-container">
+        <div *ngFor="let product of productList" class="product"></div>
+      </div>
+    </ng-container>
+
+  </form>
+</div>
